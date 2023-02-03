@@ -38,6 +38,9 @@ public class StartMenuUI : MonoBehaviour
             playerName = "Unknown";
         }
         championTitle.GetComponent<TMP_Text>().text = playerName + ": 0000";
+
+        // Save Player's name in the SaveManager instance
+        SaveManager.Instance.activePlayer = playerName;
     }
 
 

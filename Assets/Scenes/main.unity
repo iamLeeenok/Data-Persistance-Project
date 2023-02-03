@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 1005637979}
   - component: {fileID: 1005637978}
   m_Layer: 5
-  m_Name: Exit Button
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,7 +911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343, y: -324}
+  m_AnchoredPosition: {x: -368, y: -324}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005637978
@@ -1794,3 +1794,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c205885c3a41c414e9733b76550841ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestScoreTitle: {fileID: 2078529054}

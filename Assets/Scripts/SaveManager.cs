@@ -7,8 +7,16 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
 
+    public string activePlayer;
+
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
