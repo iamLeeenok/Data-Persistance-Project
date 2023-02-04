@@ -11,8 +11,10 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
-    public GameObject GameOverText;
-    
+    [SerializeField] private GameObject gameOverAlert;
+    [SerializeField] private GameObject alertMessage;
+    [SerializeField] private GameObject alertScore;
+
     private bool m_Started = false;
     public int m_Points;
     
@@ -70,16 +72,36 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        bool newRecord = false;
         m_GameOver = true;
-        GameOverText.SetActive(true);
 
         if (m_Points > SaveManager.Instance.bestScorePoints)
         {
+            newRecord = true;
             SaveManager.Instance.bestScorePoints = m_Points;
             SaveManager.Instance.bestPlayer = SaveManager.Instance.activePlayer;
-
-            // Save Player's data
-            SaveManager.Instance.SavePlayerData();
         }
+        ShowGameOverAlert(newRecord);
+    }
+
+
+    // Game Over alert window build
+    public void ShowGameOverAlert(bool isNewRecord)
+    {
+        if (isNewRecord)
+        {
+            alertMessage.GetComponent<Text>().text = SaveManager.Instance.bestPlayer + " now CHAMPION!";
+            alertScore.GetComponent<Text>().text = SaveManager.Instance.bestScorePoints.ToString();
+        }
+        else if (!isNewRecord)
+        {
+            alertMessage.GetComponent<Text>().text = SaveManager.Instance.activePlayer + ", your score:";
+        }
+        alertScore.GetComponent<Text>().text = m_Points.ToString();
+
+        gameOverAlert.SetActive(true);
+
+        // Save Player's data
+        SaveManager.Instance.SavePlayerData();
     }
 }

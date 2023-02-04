@@ -6,9 +6,14 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class MainUI : MonoBehaviour
 {
+
     [SerializeField] private GameObject bestScoreTitle;
     private string bestName;
     private int bestScore;
@@ -23,7 +28,6 @@ public class MainUI : MonoBehaviour
             bestScore = SaveManager.Instance.bestScorePoints;
             ChangeBestScoreTitle(bestName, bestScore);
         }
-
     }
 
     // Update is called once per frame
@@ -47,4 +51,15 @@ public class MainUI : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    // Exit
+    public void ExitGame()
+    {
+        SaveManager.Instance.SavePlayerData();
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
+    }
 }

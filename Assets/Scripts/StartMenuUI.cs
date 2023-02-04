@@ -45,6 +45,11 @@ public class StartMenuUI : MonoBehaviour
             championTitle.GetComponent<TMP_Text>().text = "No Champion Yet";
         }
 
+        if (SaveManager.Instance.activePlayer.Length == 0)
+        {
+            SaveManager.Instance.activePlayer = defaultPlayerName;
+        }
+
 
         // Add listener for Input Field
         menuInputField.onEndEdit.AddListener(delegate { StorePlayerName(menuInputField); });
