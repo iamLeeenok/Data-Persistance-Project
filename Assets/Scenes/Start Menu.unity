@@ -324,8 +324,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278206207
-  m_fontColor: {r: 1, g: 0.24407193, b: 0, a: 1}
+    rgba: 4279714501
+  m_fontColor: {r: 0.7735849, g: 0.25713184, b: 0.09122462, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -690,6 +690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da44efd5dfe84504fa08be9b83c19233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePlayer: 
+  bestPlayer: 
+  bestScorePoints: 0
 --- !u!4 &537178937
 Transform:
   m_ObjectHideFlags: 0
@@ -945,8 +948,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
+  playerScore: 0
   menuInputField: {fileID: 1650792616}
-  championTitle: {fileID: 1752824306}
+  championTitle: {fileID: 1480373317}
+  championLine: {fileID: 1752824306}
 --- !u!1 &1032609546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1296,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1701,7 +1706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1752824307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1775,7 +1780,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

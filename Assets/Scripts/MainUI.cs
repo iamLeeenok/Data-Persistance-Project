@@ -10,12 +10,18 @@ using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
     [SerializeField] private GameObject bestScoreTitle;
+    private string bestName;
+    private int bestScore;
+
+
     // Start is called before the first frame update
     void Start()
     {
         if (SaveManager.Instance != null)
         {
-            ChangeBestScoreTitle(SaveManager.Instance.activePlayer);
+            bestName = SaveManager.Instance.bestPlayer;
+            bestScore = SaveManager.Instance.bestScorePoints;
+            ChangeBestScoreTitle(bestName, bestScore);
         }
 
     }
@@ -27,10 +33,11 @@ public class MainUI : MonoBehaviour
     }
 
 
-    private void ChangeBestScoreTitle(string name)
+    // Passes Player's Name to the Best Score title at Main scene
+    private void ChangeBestScoreTitle(string name, int points)
     {
-        Text titleText = bestScoreTitle.GetComponent<Text>();
-        titleText.text = "Best Score: " + SaveManager.Instance.activePlayer + ": 00000";
+        Text bestScore = bestScoreTitle.GetComponent<Text>();
+        bestScore.text = "Best Score: " + name + ": " + points;
     }
 
 
